@@ -77,32 +77,6 @@ From EnergyData
 where code is not null 
 
 
--- Creating Views
-Select Distinct country,
-	Max(cast(greenhouse_gas_emissions as float)) as Country_max_emissions
-From EnergyData
-Where code is not null 
-Group by country
-Having Max(cast(greenhouse_gas_emissions as float)) > 0
-Order by  Country_max_emissions desc
-
-Select Distinct country, 
-	Max(cast(primary_energy_consumption as float)) as country_max_consumption
-From EnergyData
-Where code is not null 
-Group by country
-Having Max(cast(primary_energy_consumption as float)) > 0
-Order by Country_max_consumption desc
-
-Select Distinct country, 
-	Max(cast(electricity_generation as float)) as country_max_generation
-From EnergyData
-Where code is not null 
-Group by country
-Having Max(cast(electricity_generation as float)) > 0
-Order by country_max_generation desc
-
-
 --Renewable and Fossil Fuel Energy
 
 Select * From [Renewables&FossilFuel]
